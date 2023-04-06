@@ -63,14 +63,14 @@ func createDefaultLimitConfig(cfg config.SwarmConfig) (rcmgr.LimitConfig, error)
 
 			// By default, we just limit connections on the inbound side.
 			Conns:         bigEnough,
-			ConnsInbound:  2,
+			ConnsInbound:  50,
 			ConnsOutbound: bigEnough,
 
 			// We limit streams since they not only take up memory and CPU.
 			// The Memory limit protects us on the memory side,
 			// but a StreamsInbound limit helps protect against unbound CPU consumption from stream processing.
 			Streams:         bigEnough,
-			StreamsInbound:  5,
+			StreamsInbound:  500,
 			StreamsOutbound: bigEnough,
 		},
 		// Most limits don't see an increase because they're already infinite/bigEnough or at their max value.
@@ -80,11 +80,11 @@ func createDefaultLimitConfig(cfg config.SwarmConfig) (rcmgr.LimitConfig, error)
 			FDFraction: rcmgr.DefaultLimits.SystemLimitIncrease.FDFraction,
 
 			Conns:         0,
-			ConnsInbound:  1,
+			ConnsInbound:  50,
 			ConnsOutbound: 0,
 
 			Streams:         0,
-			StreamsInbound:  3,
+			StreamsInbound:  500,
 			StreamsOutbound: 0,
 		},
 
@@ -93,11 +93,11 @@ func createDefaultLimitConfig(cfg config.SwarmConfig) (rcmgr.LimitConfig, error)
 			FD:     rcmgr.DefaultLimits.TransientBaseLimit.FD,
 
 			Conns:         bigEnough,
-			ConnsInbound:  1,
+			ConnsInbound:  50,
 			ConnsOutbound: bigEnough,
 
 			Streams:         bigEnough,
-			StreamsInbound:  3,
+			StreamsInbound:  500,
 			StreamsOutbound: bigEnough,
 		},
 
@@ -106,11 +106,11 @@ func createDefaultLimitConfig(cfg config.SwarmConfig) (rcmgr.LimitConfig, error)
 			FDFraction: rcmgr.DefaultLimits.TransientLimitIncrease.FDFraction,
 
 			Conns:         0,
-			ConnsInbound:  1,
+			ConnsInbound:  50,
 			ConnsOutbound: 0,
 
 			Streams:         0,
-			StreamsInbound:  3,
+			StreamsInbound:  500,
 			StreamsOutbound: 0,
 		},
 
