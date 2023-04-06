@@ -63,14 +63,14 @@ func createDefaultLimitConfig(cfg config.SwarmConfig) (rcmgr.LimitConfig, error)
 
 			// By default, we just limit connections on the inbound side.
 			Conns:         bigEnough,
-			ConnsInbound:  10,
+			ConnsInbound:  2,
 			ConnsOutbound: bigEnough,
 
 			// We limit streams since they not only take up memory and CPU.
 			// The Memory limit protects us on the memory side,
 			// but a StreamsInbound limit helps protect against unbound CPU consumption from stream processing.
 			Streams:         bigEnough,
-			StreamsInbound:  30,
+			StreamsInbound:  5,
 			StreamsOutbound: bigEnough,
 		},
 		// Most limits don't see an increase because they're already infinite/bigEnough or at their max value.
@@ -80,11 +80,11 @@ func createDefaultLimitConfig(cfg config.SwarmConfig) (rcmgr.LimitConfig, error)
 			FDFraction: rcmgr.DefaultLimits.SystemLimitIncrease.FDFraction,
 
 			Conns:         0,
-			ConnsInbound:  rcmgr.DefaultLimits.SystemLimitIncrease.ConnsInbound,
+			ConnsInbound:  1,
 			ConnsOutbound: 0,
 
 			Streams:         0,
-			StreamsInbound:  rcmgr.DefaultLimits.SystemLimitIncrease.StreamsInbound,
+			StreamsInbound:  3,
 			StreamsOutbound: 0,
 		},
 
@@ -93,11 +93,11 @@ func createDefaultLimitConfig(cfg config.SwarmConfig) (rcmgr.LimitConfig, error)
 			FD:     rcmgr.DefaultLimits.TransientBaseLimit.FD,
 
 			Conns:         bigEnough,
-			ConnsInbound:  rcmgr.DefaultLimits.TransientBaseLimit.ConnsInbound,
+			ConnsInbound:  1,
 			ConnsOutbound: bigEnough,
 
 			Streams:         bigEnough,
-			StreamsInbound:  rcmgr.DefaultLimits.TransientBaseLimit.StreamsInbound,
+			StreamsInbound:  3,
 			StreamsOutbound: bigEnough,
 		},
 
@@ -106,11 +106,11 @@ func createDefaultLimitConfig(cfg config.SwarmConfig) (rcmgr.LimitConfig, error)
 			FDFraction: rcmgr.DefaultLimits.TransientLimitIncrease.FDFraction,
 
 			Conns:         0,
-			ConnsInbound:  rcmgr.DefaultLimits.TransientLimitIncrease.ConnsInbound,
+			ConnsInbound:  1,
 			ConnsOutbound: 0,
 
 			Streams:         0,
-			StreamsInbound:  rcmgr.DefaultLimits.TransientLimitIncrease.StreamsInbound,
+			StreamsInbound:  3,
 			StreamsOutbound: 0,
 		},
 
